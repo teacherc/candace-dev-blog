@@ -385,8 +385,10 @@ def test_embedded_files_returns_indexing_error_on_indexed_files_failure(
     assert isinstance(result, IndexingError)
 ```
 
-### Resources
-- [Growing Object-Oriented Software, Guided by Tests](https://learning.oreilly.com/library/view/growing-object-oriented-software/9780321574442/) by Steve Freeman and Nat Pryce
+After reading [PEP 634](https://peps.python.org/pep-0634/) and [PEP 636](https://peps.python.org/pep-0636/), I'm also experimenting with structural pattern matching for my returned errors. 
+
+### Resource
+[Growing Object-Oriented Software, Guided by Tests](https://learning.oreilly.com/library/view/growing-object-oriented-software/9780321574442/) by Steve Freeman and Nat Pryce
 
 ## Then: What are type annotations? Now: Annotations everywhere.
 
@@ -488,7 +490,7 @@ jobs:
 
 Now that I'm writing unit and integration tests consistently, as well as using
 flake8, Pyright, and Black for formatting, type checking, and linting, it is
-easier for me to enforce a consistent approach to all of these things.
+easier for me to enforce a consistent approach to types and formatting.
 
 ## Then: requirements.txt. Now: Poetry.
 
@@ -514,6 +516,8 @@ directly to main.
 Since I've gone through the code review and merge process at my job, I know the
 importance of feature branches and pull requests. It's also great how [Linear](https://linear.app/) helps me link my branches to our internal issues (I also use Linear for my personal projects). I try to use the [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/) spec for my commit messages.
 
+After a project becomes public, I try to commit to branches.
+
 ## Then: VSCode + life on the desktop. Now: LunarVim + life in the terminal.
 
 ### Then
@@ -525,7 +529,7 @@ motions. After [reading this incredible blog post](https://www.ssp.sh/blog/why-u
 Although I'd consider myself to be a Vim novice, I can navigate code files very
 quickly and use LSP features to make my life easier (find, rename, diagnostics, etc). I've configured flake8, Black, and Pyright, so my files are linted and type checked as they are saved. I still have a lot to learn, but each week I gain a little speed. I've also noticed that I live more in the terminal in general. I'm more likely to look for CLIs or terminal commands to do my work.  
 
-## Then: Rubber ducking and troubleshooting with Google. Now: PEPs, documentation, sourcecode, and ChatGPT4. 
+## Then: Rubber ducking and troubleshooting with Google. Now: PEPs, documentation, source code, and ChatGPT4. 
 
 ### Then
 
