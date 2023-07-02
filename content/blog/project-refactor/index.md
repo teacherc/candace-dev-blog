@@ -12,6 +12,8 @@ be to jump into a project right away. After reading the first few chapters of
 [Automate the Boring Stuff with Python](https://automatetheboringstuff.com/), I came up with the idea to create Python code that took in a user's zipcode and returned the weather paired
 with a Spotify song recommendation.
 
+I created a [public repo](https://github.com/teacherc/spheri-app), deployed to[spheri.app](https://spheri.app/), and posted to [r/Python](https://www.reddit.com/r/Python/comments/zb6ro9/i_got_laid_off_in_midoctober_and_decided_to_teach/).
+
 # What went well?
 
 ## I got a job!
@@ -45,9 +47,7 @@ air out some of the code smells.
 
 ## Documentation
 
-My README, [release documentation](), and project board not only helped me keep track of
-the context of my work, but helped me tell the story of the project, build
-community, and solicit feedback.
+My README, [release documentation](https://github.com/teacherc/spheri-app/wiki/Deploy-Instructions), and project board not only helped me keep track of the context of my work, but helped me tell the story of the project, build community, and solicit feedback.
 
 # What didn't go well?
 
@@ -63,8 +63,7 @@ When I started this new project, I spent a week domain modeling and designing. I
 
 ### Then 
 Almost all of the code, from Flask routes to business logic and some of the
-presentation code, is in
-[app/main.py](https://github.com/teacherc/spheri-app/blob/main/app/main.py).
+presentation code, is in [app/main.py](https://github.com/teacherc/spheri-app/blob/main/app/main.py).
 
 Spheri tree:
 ```bash
@@ -540,7 +539,7 @@ subscription), and copy-paste error messages into StackOverflow and Google.
 ### Now
 
 I am much more likely to read source code directly. This was a big jump in my
-development. I've even started to edit the sourcecode of open source projects to
+development. I've even started to edit the source code of open source projects to
 fit my needs in my projects. I also look to package documentation and PEPs instead of blog posts
 and YouTube videos. I read books for more wholistic computer science and system
 design concepts.
