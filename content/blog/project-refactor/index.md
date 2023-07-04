@@ -1,7 +1,7 @@
 ---
 title: Psuedo-Refactoring
 date: "2023-07-04"
-description: This is a blog post about how I would refactor my first public Python project to improve its robustness.
+description: Before I start working on a new personal or professional project, I review my old projects and imagine how I would refactor them. 
 ---
 
 # What is psuedo-refactoring?
@@ -65,6 +65,51 @@ My README, [release documentation](https://github.com/teacherc/spheri-app/wiki/D
 ### Then 
 Almost all of the code, from Flask routes to business logic and some of the
 presentation code, is in [app/main.py](https://github.com/teacherc/spheri-app/blob/main/app/main.py).
+
+main.py excerpt
+```python
+@app.route("/")
+def index():
+    zipcode = request.args.get("zipcode", "")
+    min_valence = ""
+    max_valence = ""
+    weather_genre = ""
+    token = []
+    final_recommendation = {}
+    spotify_data = {}
+
+    if zipcode:
+        from constants import ERROR_MESSAGES
+        if not validate_zipcode(zipcode):
+            return render_template(
+                "error.html", error_message=str(ERROR_MESSAGES["INVALID_ZIPCODE"])
+            )
+        weather_data = call_weather_api(zipcode)
+        if weather_data["api_code"] != 200:
+            return render_template(
+                "error.html",
+                error_message=str(ERROR_MESSAGES["INCOMPLETE_WEATHERSTACK_RESPONSE"])
+            )
+        if "current" not in weather_data["weather"]:
+            return render_template(
+                "error.html",
+                error_message=str(ERROR_MESSAGES["WEATHERSTACK_ZIP_ERROR"])
+            )
+        min_valence, max_valence = assign_valence(weather_data)
+        weather_genre = assign_genre(weather_data)
+        token = str(get_spotify_token())
+        spotify_data = call_spotify_api(token, min_valence, max_valence, weather_genre)
+        if spotify_data["spotify_status"] != 200:
+            return render_template(
+                "error.html",
+                error_message=str(ERROR_MESSAGES["SPOTIFY_API_ERROR"])
+            )
+        final_recommendation = assign_recommendations(spotify_data, weather_data)
+
+    else:
+        return render_template("empty.html")
+    return render_template("form.html", zipcode=zipcode, **final_recommendation)
+```
 
 Spheri tree:
 ```bash
