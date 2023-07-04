@@ -1,6 +1,6 @@
 ---
 title: How I Would Refactor the Project That Got Me My First Software Engineering Role
-date: "2023-07-03"
+date: "2023-07-04"
 description: This is a blog post about how I would refactor my first public Python project to improve its robustness.
 ---
 
@@ -12,7 +12,7 @@ be to jump into a project right away. After reading the first few chapters of
 [Automate the Boring Stuff with Python](https://automatetheboringstuff.com/), I came up with the idea to create Python code that took in a user's zipcode and returned the weather paired
 with a Spotify song recommendation.
 
-I created a [public repo](https://github.com/teacherc/spheri-app), deployed to[spheri.app](https://spheri.app/), and posted to [r/Python](https://www.reddit.com/r/Python/comments/zb6ro9/i_got_laid_off_in_midoctober_and_decided_to_teach/).
+I created a [public repo](https://github.com/teacherc/spheri-app), deployed to [spheri.app](https://spheri.app/), and posted about the project on r/Python (RIP Reddit).
 
 # What went well?
 
@@ -25,17 +25,15 @@ LinkedIn. From that post, I got a few introductions that lead to interviews. I
 applied to a Product Management role at Inferex on Wellfound. When I got to the
 interview, Greg, the CEO, asked me about my coding projects and what I really
 wanted to do at Inferex. I floated the idea of a dual-PM + Jr Software Eng role.
-Greg ended up hiring me to be a Junior Software Engineer. If I hadn't of had
-this proof of work on GitHub, I could have never gotten this role or the other
-interviews.
+Greg ended up hiring me to be a Junior Software Engineer. If I didn't have
+Spheri as a proof of work on GitHub, I wouldn't have gotten this role.
 
 ## I learned a lot in a short amount of time
 
 Going from `print("Hello, Candace!)` to a deployed web app was a major leap for
 me. I started working on the project in the first week of November, and posted
-it to r/Python on December 2, 2022. When I started the project, I thought I would just create a .p
-file. Then, I realized that to share this idea, I needed to put it on the web. That lead to me learning about web frameworks (I chose Flask), routing and HTTP requests, containerization via
-Docker, and cloud deployments. 
+it to r/Python on December 2, 2022. When I started the project, I thought I would just create a .py
+file. Then, I realized that to share this idea, I needed to put it on the web. I had to learn abou web frameworks (I chose Flask), routing and HTTP requests, containerization via Docker, and cloud deployments. 
 
 ## The r/Python community gave me excellent feedback and support
 
@@ -55,7 +53,7 @@ A lot! It takes a long time for our skills to catch up with our taste. I knew a
 lot of things could be better about my project. When I look at the code now, I
 feel equal parts pride and "yikes!" 
 
-I thought about refactoring Spheri, but my interests have evolved. I'm obsessed with developer experience and CLIs. Also, I work in the ML/AI space and need to stay up on advancements in the field. Right now, I'm working on a CLI that leverages LangChain and ChatGPT to help people who are learning how to code.
+I thought about refactoring Spheri, but realized my interests have evolved. I'm obsessed with developer experience and CLIs. Also, I work in the ML/AI space and need to stay up on advancements in the field. Right now, I'm working on a CLI that leverages LangChain and ChatGPT to help people who are learning how to code.
 
 When I started this new project, I spent a week domain modeling and designing. It was useful to look back at Spheri and make a list of things I would do better in this new project. The rest of this blog post is that list. My understanding of Python, computer science, system design, and domain modeling is increasing by the hour. I'll probably look back at this blog post in semi-shame in a few months. 
 
@@ -99,7 +97,7 @@ There is no separation of concerns and a lot of spaghetti code. If I wanted to c
 
 ### Now
 
-Before I write a line of code, I make a series [C4 Domain Diagrams](https://c4model.com/) so I have a clear idea of the domain. Domain design helps me construct loosely coupled, highly-cohesive objects. I am still experimenting with different design patterns, but I tend to start with a layered architecture and go from there. If I refactored Spheri, there would be presentation, business, service, and persistence layers.
+Before I write a line of code, I make a series [C4 Domain Diagrams](https://c4model.com/) so I have a clear idea of the domain. Domain design helps me construct loosely coupled, highly-cohesive objects. I am still experimenting with different design patterns, but I tend to start with a layered architecture and go from there. If I refactored Spheri, there would be presentation, business, service, and persistence layers. The [dependency-injector](https://python-dependency-injector.ets-labs.org/) library helps me enforce the separation of concerns and "value composition over inheritance".
 
 The tree for my new CLI project looks like this:
 
