@@ -1,8 +1,19 @@
 ---
-title: How I Would Refactor the Project That Got Me My First Software Engineering Role
+title: Psuedo-Refactoring
 date: "2023-07-04"
 description: This is a blog post about how I would refactor my first public Python project to improve its robustness.
 ---
+
+# What is psuedo-refactoring?
+
+Before I start working on a new personal or professional project, I review my
+old projects and imagine how I would refactor them. These potential improvements
+become issues in my new project. I've started working on a CLI that leverages LangChain, Click, th OpenAI API, and ActiveLoop to help project-based learners improve their code projects.
+
+The rest of this blog post will be a psuedo-refactor of Spheri. Spheri was my first Python project It helped me get my first software engineering role. Although I'm proud of this project, I shudde when I think about the spaghetti code and other issues that are obvious now. Since I've been in m software engineering role for a few months, it's a good time to review this project so I can improve my next project.
+
+My understanding of Python, computer science, system design, and domain modeling is increasing by the hour. I'll probably look back at this blog post in semi-shame in a few months. 
+
 
 # What is Spheri?
 
@@ -49,14 +60,6 @@ My README, [release documentation](https://github.com/teacherc/spheri-app/wiki/D
 
 # What didn't go well?
 
-A lot! It takes a long time for our skills to catch up with our taste. I knew a
-lot of things could be better about my project. When I look at the code now, I
-feel equal parts pride and "yikes!" 
-
-I thought about refactoring Spheri, but realized my interests have evolved. I'm obsessed with developer experience and CLIs. Also, I work in the ML/AI space and need to stay up on advancements in the field. Right now, I'm working on a CLI that leverages LangChain and ChatGPT to help people who are learning how to code.
-
-When I started this new project, I spent a week domain modeling and designing. It was useful to look back at Spheri and make a list of things I would do better in this new project. The rest of this blog post is that list. My understanding of Python, computer science, system design, and domain modeling is increasing by the hour. I'll probably look back at this blog post in semi-shame in a few months. 
-
 ## Then: Spaghetti dinner. Now: Objects, layered architecture, and dependency-injector.
 
 ### Then 
@@ -97,7 +100,7 @@ There is no separation of concerns and a lot of spaghetti code. If I wanted to c
 
 ### Now
 
-Before I write a line of code, I make a series [C4 Domain Diagrams](https://c4model.com/) so I have a clear idea of the domain. Domain design helps me construct loosely coupled, highly-cohesive objects. I am still experimenting with different design patterns, but I tend to start with a layered architecture and go from there. If I refactored Spheri, there would be presentation, business, service, and persistence layers. The [dependency-injector](https://python-dependency-injector.ets-labs.org/) library helps me enforce the separation of concerns and "value composition over inheritance".
+Before I write a line of code, I make a series [C4 Domain Diagrams](https://c4model.com/) so I hav a clear idea of the domain. Domain design helps me construct loosely coupled, highly-cohesive objects. I am still experimenting with different design patterns, but I tend to start with a layered architecture and go from there. If I refactored Spheri, there would be presentation, business, service, and persistence layers. The [dependency-injector](https://python-dependency-injector.ets-labs.org/) library helps me enforce the separation of concerns and compose behavior instead of relying on inheritance.
 
 The tree for my new CLI project looks like this:
 
